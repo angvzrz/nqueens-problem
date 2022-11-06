@@ -1,11 +1,9 @@
-function Square({squareColor}) {
+function Square({ squareColor }) {
   if (squareColor === 'dark') {
-    return <div className="w-3 h-3 colo bg-sky-900"></div>
+    return <td className="w-12 h-12 border bg-sky-900"></td>;
+  } else {
+    return <td className="w-12 h-12 border bg-sky-200"></td>;
   }
-  else {
-    return <div className="w-3 h-3 colo bg-sky-200"></div>
-  }
-  
 }
 
 export { Square };

@@ -1,13 +1,21 @@
-import { Square } from './square';
+import { BoardRow } from './board-row';
 
 function Board({ board }) {
   return (
-    <div className='min-w-full'>
-      {board.map((value, index) => {
-        const squareColor = value === 1 ? 'dark' : 'light';
-        return <Square key={index} squareColor={squareColor} />;
-      })}
-    </div>
+    <table className="table-auto">
+      <tbody>
+        {board.map((row, index) => {
+          const colorPattern = index % 2 === 0 ? 'dark' : 'light';
+          return (
+            <BoardRow
+              key={index}
+              rowLength={row.length}
+              colorPattern={colorPattern}
+            />
+          );
+        })}
+      </tbody>
+    </table>
   );
 }
 
