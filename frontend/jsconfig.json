@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["components/*"],
+      "nqueens/*": ["nqueens/*"]
+    }
+  },
+  "include": ["**/*.js", "**/*.jsx"]
+}

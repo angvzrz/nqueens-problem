@@ -1,0 +1,3 @@
+function Queen() {}
+
+export { Queen };
