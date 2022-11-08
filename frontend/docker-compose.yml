@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  app:
+    build: 
+      context: .
+    volumes: 
+      - .:/src
+    ports: 
+      - 3000:3000
+    image: nqueens:dock-composed
+    container_name: nqueens_container
+    command: npm start
