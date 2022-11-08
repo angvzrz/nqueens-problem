@@ -18,11 +18,7 @@ function Board({ boardSize }) {
           board.map((row, index) => {
             const colorPattern = index % 2 === 0 ? 'dark' : 'light';
             return (
-              <BoardRow
-                key={index}
-                rowLength={row.length}
-                colorPattern={colorPattern}
-              />
+              <BoardRow key={index} row={row} colorPattern={colorPattern} />
             );
           })}
       </tbody>

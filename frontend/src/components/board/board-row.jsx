@@ -1,8 +1,8 @@
 import { Square } from './square';
 
-function BoardRow({ rowLength, colorPattern }) {
+function BoardRow({ row, colorPattern }) {
   const darkPattern = Array.from(
-    { length: rowLength },
+    { length: row.length },
     (_, index) => index % 2
   );
   const lightPattern = darkPattern.map((colorCode) => {
@@ -10,13 +10,15 @@ function BoardRow({ rowLength, colorPattern }) {
     return reversedColor;
   });
 
-  const row = colorPattern === 'dark' ? darkPattern : lightPattern;
+  const rowPattern = colorPattern === 'dark' ? darkPattern : lightPattern;
 
   return (
     <tr>
-      {row.map((colorCode, index) => {
-        const color = colorCode === 0 ? 'dark' : 'light';
-        return <Square key={index} squareColor={color} />;
+      {row.map((position, index) => {
+        const color = rowPattern[index] === 0 ? 'dark' : 'light';
+        return (
+          <Square key={index} squareColor={color} hasQueen={position === 1} />
+        );
       })}
     </tr>
   );
