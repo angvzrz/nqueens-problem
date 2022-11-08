@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# N Queens problem 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project for showcasing solutions of the N Queens problem.
+UI was made with React and TailwindCss.
 
 ## Available Scripts
 
