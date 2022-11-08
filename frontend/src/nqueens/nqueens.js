@@ -1,7 +1,8 @@
 export const createBoard = (boardSize) => {
   const board = Array.from({ length: boardSize }, () =>
-    new Array(boardSize).fill(0)
+    Array.from({ length: boardSize }, () => 0)
   );
+
   return board;
 };
 
@@ -64,23 +65,40 @@ export const solveNQueens = (board, initialRow, col) => {
   return false;
 };
 
-export const compareBoards = (boardA, boardB) => {
-  if (JSON.stringify(boardA) !== JSON.stringify(boardB)) {
+export const boardsEquals = (board1, board2) => {
+  if (JSON.stringify(board1) !== JSON.stringify(board2)) {
     return false;
   }
 
   return true;
 };
 
-export function checkMatrix() {
-  const matrix = [
-    ['a', 'b', 'c', 'd'],
-    ['e', 'f', 'g', 'h'],
-    ['i', 'j', 'k', 'l'],
-    ['m', 'n', 'o', 'p'],
-  ];
+export const searchMoreSolutions = (boardSize) => {
+  const boardSolutions = [];
+  let previousSolution = [];
 
-  for (let i = 0; i < 4; i++) {
-    console.log(matrix[1][i]);
+  for (let initialRow = 0; initialRow < boardSize; initialRow++) {
+    const initialBoard = createBoard(boardSize);
+    const result = solveNQueens(initialBoard, initialRow, 0);
+
+    if (initialRow === 0 && result) {
+      boardSolutions.push(initialBoard);
+      previousSolution = [...initialBoard];
+    }
+
+    if (result) {
+      if (!boardsEquals(initialBoard, previousSolution)) {
+        boardSolutions.push(initialBoard);
+        previousSolution = [...initialBoard];
+      }
+    }
   }
-}
+
+  printAllBoardSolutions(boardSolutions);
+
+  return boardSolutions;
+};
+
+export const printAllBoardSolutions = (solutions) => {
+  solutions.forEach((solution) => printBoard(solution));
+};
