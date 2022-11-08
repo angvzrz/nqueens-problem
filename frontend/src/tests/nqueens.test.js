@@ -38,6 +38,9 @@ describe('N Queens Problem module', () => {
   test('solveNQueens returns true', () => {
     let board = nqueens.createBoard(4);
     expect(nqueens.solveNQueens(board, 2, 0)).toBe(true);
-    nqueens.printBoard(board);
   });
+
+  test('Try to get more than 1 solution for a board size', () => {
+    expect(nqueens.searchMoreSolutions(8).length).toBeGreaterThan(1);
+  })
 });

@@ -14,7 +14,7 @@ COPY . .
 RUN npm ci 
 
 # Build the app
-RUN npm run build
+RUN npm run build && npm run test
 
 # Start the app
 CMD [ "npm", "start" ]
