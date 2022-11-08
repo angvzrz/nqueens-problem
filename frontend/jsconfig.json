@@ -3,7 +3,8 @@
     "baseUrl": "./src",
     "paths": {
       "components/*": ["components/*"],
-      "nqueens/*": ["nqueens/*"]
+      "nqueens/*": ["nqueens/*"],
+      "resources/*": ["resources/*"]
     }
   },
   "include": ["**/*.js", "**/*.jsx"]

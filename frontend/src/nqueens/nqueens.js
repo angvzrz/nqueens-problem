@@ -1,7 +1,8 @@
 export const createBoard = (boardSize) => {
   const board = Array.from({ length: boardSize }, () =>
-    new Array(boardSize).fill(0)
+    Array.from({ length: boardSize }, () => 0)
   );
+
   return board;
 };
 
